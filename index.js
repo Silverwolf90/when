@@ -5,7 +5,7 @@ function isFunction(value) {
 }
 
 function when(predicate, transform, value) {
-  const isTrue = (isFunction(predicate) && predicate(value)) || Boolean(predicate);
+  const isTrue = isFunction(predicate) ? predicate(value) : Boolean(predicate);
   return isTrue ? transform(value) : value;
 }
 
