@@ -1,4 +1,4 @@
-const curr = require('curry');
+const curry = require('curry');
 
 const isFunction = value => typeof value === 'function';
 
