@@ -1,10 +1,12 @@
 const curry = require('curry');
 
-const isFunction = value => typeof value === 'function';
+function isFunction(value) {
+  return typeof value === 'function';
+}
 
-const when = (predicate, transform, value) =>
-  (isFunction(predicate) && predicate(value)) || predicate
-    ? transform(value)
-    : value
+function when(predicate, transform, value) {
+  const isTrue = (isFunction(predicate) && predicate(value)) || Boolean(predicate);
+  return isTrue ? transform(value) : value;
+}
 
 module.exports = curry(when);
